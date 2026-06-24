@@ -1,0 +1,296 @@
+/* index.css
+   ---------------------------------------------------------------------------
+   Plain, beginner-friendly CSS. No framework. Comments explain the sections.
+   --------------------------------------------------------------------------- */
+
+/* Leaflet's own stylesheet — REQUIRED for the map to display correctly. */
+@import "leaflet/dist/leaflet.css";
+
+/* ---- Basic reset & page defaults ---------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ---- Header & footer ----------------------------------------------------- */
+.app-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.app-header p {
+  margin: 4px 0 16px;
+  color: #4b5563;
+}
+.app-footer {
+  margin-top: 32px;
+  padding: 16px 0;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.85rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* ---- Error banner -------------------------------------------------------- */
+.error-banner {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* ---- Two-column layout (form | map) ------------------------------------- */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+/* On narrow screens, stack the columns. */
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.map-wrapper {
+  height: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+.map-hint {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 6px 2px 0;
+}
+
+/* ---- Form ---------------------------------------------------------------- */
+.issue-form {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.issue-form h2 {
+  margin: 0 0 4px;
+}
+.issue-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  font-weight: 600;
+  gap: 4px;
+}
+.issue-form input,
+.issue-form textarea,
+.issue-form select {
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.location-box {
+  background: #f9fafb;
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 0.9rem;
+}
+
+/* ---- Buttons ------------------------------------------------------------- */
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.btn-primary:disabled {
+  background: #93c5fd;
+  cursor: default;
+}
+.btn-secondary {
+  background: #eef2ff;
+  color: #3730a3;
+  border: 1px solid #c7d2fe;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.btn-link {
+  background: none;
+  border: none;
+  color: #2563eb;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+.form-message {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+/* ---- AI suggestion box --------------------------------------------------- */
+.ai-suggestion {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.ai-badge {
+  background: #16a34a;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.ai-badge.small {
+  font-size: 0.62rem;
+}
+.ai-note {
+  flex-basis: 100%;
+  margin: 4px 0 0;
+  font-size: 0.78rem;
+  color: #4b5563;
+  font-weight: 400;
+}
+
+/* ---- Issue list ---------------------------------------------------------- */
+.issue-list {
+  margin-top: 28px;
+}
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filter-label,
+.status-select-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.filter-label select,
+.status-select-label select {
+  padding: 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.issue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+
+/* ---- Issue card ---------------------------------------------------------- */
+.issue-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.issue-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.issue-card-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.status-pill {
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.issue-desc {
+  margin: 0;
+  color: #374151;
+  font-size: 0.92rem;
+}
+.issue-image {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.issue-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: #4b5563;
+}
+.ai-hint {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.issue-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+.btn-upvote {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* ---- Misc ---------------------------------------------------------------- */
+.muted {
+  color: #9ca3af;
+}
