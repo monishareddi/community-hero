@@ -269,6 +269,22 @@ These are **not** implemented yet — they are ideas for later:
 
 ---
 
+## Screenshots
+
+### Report an Issue
+
+Citizens can report civic problems, choose severity/category, upload an image, and select the issue location on an interactive map.
+
+![Report Issue Form](docs/screenshots/01-report-issue-map.png)
+
+### Issue Tracking and Resolution
+
+Users can view reported issues, upvote/verify them, and track status updates from open to resolved.
+
+![Issue Tracking](docs/screenshots/02-issue-tracking-status.png)
+
+---
+
 ## License
 
 MIT — free to use, learn from, and modify.
