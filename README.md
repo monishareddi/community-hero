@@ -10,8 +10,7 @@ on the map, upvote/verify them, and move them through a status workflow. A simpl
 > **Honesty note:** This is an MVP. It only implements what is listed in
 > [Features](#features) below. The "AI-assisted suggestion" is **keyword matching,
 > not machine learning** — it is clearly labelled as such everywhere in the app.
-> There is **no authentication** and **no paid API**.
-
+>
 ---
 
 ## Features
@@ -51,7 +50,6 @@ What this project **does NOT do** (intentionally out of scope for the MVP):
 | Database  | SQLite (via `better-sqlite3`)                |
 | Uploads   | `multer` (stores images on disk)             |
 
-No Docker. No paid APIs. No authentication.
 
 ---
 
